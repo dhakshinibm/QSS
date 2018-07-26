@@ -1,0 +1,59 @@
+<body>
+  <div class="container">
+    <header>
+      <h1 class="h1 blue-text">QnA</h1>
+    </header>
+
+    <div class="row">
+    <form class="add-question col s12">
+      <div class="row">
+        <div class="input-field blue-text lighten-1 col s9 offset-s1"> 
+         <i class="material-icons prefix">menu</i>
+         <label for="questionText1" class="label pulse">Type your Question here</label>
+         <input type="text" name="questionText1" autofocus class="autocomplete" />
+        </div>
+        <div class="input-field col s1"> 
+          <input type="submit" value="submit" class="btn waves-effect teal lighten-1">      
+        </div>
+      </div>
+    </form>
+    </div>
+
+  <table class="left black-text striped" border="1">
+    <thead class="blue lighten-1 z-depth-2">
+      <tr>
+        <th>Question</th>
+        <th>when was it added?</th>
+        <th>upVote</th>
+        <th>downVote</th>
+        <th>remove</th>
+      </tr>
+    </thead>
+    <tbody>
+          {{#each questions}}
+            {{> question}}
+          {{/each}}
+    </tbody>
+  </table>
+  </div>
+</body>
+
+<template name="question">
+  <tr>
+  <td>
+      <span class="black-text left"><b>{{questionText}} </b></span>
+  </td>
+  <td>
+      <span class="black-text"><small><i>:  {{whenCreated}} </i></small></span>
+  </td>
+  <td>
+        <i class="material-icons blue-text hoverable" id="upVote">thumb_up</i><small class="black-text">{{upVoteCounter}}</small>
+  </td>
+  <td>
+        <i class="material-icons brown-text hoverable" id="downVote">thumb_down</i><small class="black-text">{{downVoteCounter}}</small>
+  </td>
+  <td>
+        <i class="material-icons black-text hoverable" id="delete-question">close</i>
+  </td>
+  </tr>
+</template>
